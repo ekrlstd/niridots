@@ -1,0 +1,41 @@
+1788180527358	Sync.LogManager	DEBUG	Flushing file log
+1788180527360	Sync.LogManager	DEBUG	Log cleanup threshold time: 1787316527360
+1788180527361	Sync.LogManager	DEBUG	Done deleting files.
+1788180584990	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1788180586764	Sync.SyncScheduler	DEBUG	Network link status changed to "up". Offline?: false
+1788180586764	Sync.SyncScheduler	DEBUG	Network link looks up. Syncing.
+1788180586766	Sync.SyncScheduler	DEBUG	Next sync in 600000 ms. (why=schedule)
+1788180586768	Sync.SyncScheduler	DEBUG	Network link status changed to "changed". Offline?: false
+1788180586769	Sync.Service	DEBUG	User-Agent: Zen/1.21.15b (Linux x86_64) FxSync/1.156.0.20260818101929.desktop
+1788180586770	Sync.Service	INFO	Starting sync at 2026-08-31 14:49:46 in browser session BtZENGzV88KO
+1788180586771	Sync.SyncScheduler	DEBUG	Clearing sync triggers and the global score.
+1788180586772	Sync.Status	INFO	Resetting Status.
+1788180586772	Sync.Status	DEBUG	Status.service: error.sync.failed => success.status_ok
+1788180586773	FirefoxAccounts	TRACE	not checking freshness of profile as it remains recent
+1788180586773	Sync.SyncAuthManager	INFO	Getting sync key
+1788180586773	FirefoxAccounts	DEBUG	getOAuthToken enter
+1788180586773	FirefoxAccounts	TRACE	getCachedToken returning cached token
+1788180586773	FirefoxAccounts	DEBUG	getOAuthToken returning a cached token
+1788180586773	Sync.SyncAuthManager	INFO	Getting a sync token from: https://token.services.mozilla.com/1.0/sync/1.5
+1788180586774	Sync.SyncAuthManager	DEBUG	Getting a token using OAuth
+1788180586774	Services.Common.TokenServerClient	DEBUG	Beginning OAuth token exchange: https://token.services.mozilla.com/1.0/sync/1.5
+1788180586774	Services.Common.RESTRequest	DEBUG	GET request to https://token.services.mozilla.com/1.0/sync/1.5
+1788180586789	Services.Common.RESTRequest	DEBUG	GET https://token.services.mozilla.com/1.0/sync/1.5 failed: 2152398861 - NS_ERROR_CONNECTION_REFUSED
+1788180586789	Sync.SyncAuthManager	ERROR	Non-authentication error in _fetchTokenForUser: TokenServerClientNetworkError({"error":{}})(resource://services-common/tokenserverclient.sys.mjs:28:36) JS Stack trace: TokenServerClientNetworkError@tokenserverclient.sys.mjs:51:16
+_tokenServerExchangeRequest@tokenserverclient.sys.mjs:235:13
+1788180586791	Sync.Status	DEBUG	Status.login: success.login => error.login.reason.network
+1788180586791	Sync.Status	DEBUG	Status.service: success.status_ok => error.login.failed
+1788180586791	FirefoxAccounts	TRACE	Getting command keys: https://identity.mozilla.com/cmd/open-uri
+1788180586791	Sync.SyncAuthManager	ERROR	Failed to fetch a token for authentication: TokenServerClientNetworkError({"error":{}})(resource://services-common/tokenserverclient.sys.mjs:28:36) JS Stack trace: TokenServerClientNetworkError@tokenserverclient.sys.mjs:51:16
+_tokenServerExchangeRequest@tokenserverclient.sys.mjs:235:13
+1788180586794	FirefoxAccounts	TRACE	not checking freshness of profile as it remains recent
+1788180586794	FirefoxAccounts	TRACE	Getting command keys: https://identity.mozilla.com/cmd/close-uri/v1
+1788180586805	Sync.Resource	WARN	GET request to https://sync-1-us-west1-g.sync.services.mozilla.com/1.5/266635267/info/collections failed: [Exception... "The connection was refused"  nsresult: "0x804b000d (NS_ERROR_CONNECTION_REFUSED)"  location: "<unknown>"  data: no] No traceback available
+1788180586805	Sync.Status	DEBUG	Status.sync: success.sync => error.login.reason.network
+1788180586805	Sync.Status	DEBUG	Status.service: error.login.failed => error.sync.failed
+1788180586809	Sync.ErrorHandler	ERROR	Sync encountered an error: [Exception... "The connection was refused"  nsresult: "0x804b000d (NS_ERROR_CONNECTION_REFUSED)"  location: "<unknown>"  data: no] No traceback available
+1788180586810	Sync.SyncScheduler	DEBUG	Sync error count has exceeded 3; enforcing backoff.
+1788180586810	Sync.SyncScheduler	DEBUG	Starting client-initiated backoff. Next sync in 6829812 ms.
+1788180586810	Sync.SyncScheduler	DEBUG	Next sync in 6829812 ms. (why=client-backoff-schedule)
+1788180586810	Sync.Telemetry	INFO	Early submission of sync telemetry due to changed IDs/NodeType
+1788180586812	Sync.Service	DEBUG	Exception calling anonymous function: [Exception... "The connection was refused"  nsresult: "0x804b000d (NS_ERROR_CONNECTION_REFUSED)"  location: "<unknown>"  data: no] No traceback available

@@ -1,0 +1,18 @@
+// Overrides applied AFTER noctalia.kdl (included from config.kdl).
+//
+// Noctalia themes the niri border/focus-ring via generated `noctalia.kdl`, but
+// its `inactive-color` comes out far too dark against the terminal background.
+// niri merges config sections field-by-field and later definitions win, so
+// this file re-declares ONLY `inactive-color` (for both border and focus-ring),
+// leaving all other Noctalia colors (active/urgent) untouched.
+//
+// Noctalia never writes to this file, so it survives wallpaper changes.
+layout {
+    focus-ring {
+        inactive-color "#505050"
+    }
+
+    border {
+        inactive-color "#505050"
+    }
+}

@@ -1,0 +1,150 @@
+-- OLD HERE:
+--    -- This file needs to have same structure as nvconfig.lua
+--    -- https://github.com/NvChad/ui/blob/v3.0/lua/nvconfig.lua
+--
+--    ---@type ChadrcConfig
+--    local M = {}
+--
+--    -- ─── Single source of truth ────────────────────────────────────────────────
+--    -- Change a color here and it propagates everywhere it's used below.
+--    -- (macOS Sequoia Dark palette, tree bg swapped to match current wallpaper)
+--    local palette = {
+--      darker_black = "#131314", -- tree / deepest surfaces
+--      bars = "#131314", -- statusline / tabufline bg (darkest)
+--      editor_bg = "#1b1a1c", -- editor background
+--      elevated = "#242526", -- elevated surfaces, cursor line
+--      selection = "#323334", -- selection / visual mode
+--      border = "#404142", -- borders, separators, line numbers
+--      muted = "#5b5c5e", -- comments, operators, punctuation
+--      fg = "#ebebf5", -- primary text
+--      blue = "#0a84ff", -- functions
+--      green = "#30d158", -- strings
+--      red = "#ff453a", -- errors / keywords
+--      orange = "#ff9f0a", -- numbers / constants
+--      purple = "#bf5af2", -- types
+--      cyan = "#64d2ff", -- builtins / special
+--    }
+--
+--    M.base46 = {
+--      theme = "onedark",
+--
+--      -- ─── Base30 palette overrides ─────────────────────────────────────────────
+--      -- NvChad's tabufline and statusline are compiled from these named colors,
+--      -- not from standard Vim highlight groups. Overriding them here is the only
+--      -- way to reliably change the bar backgrounds.
+--      changed_themes = {
+--        onedark = {
+--          base_16 = {
+--            base00 = palette.editor_bg, -- editor bg
+--            base01 = palette.bars, -- statusline segments, panels
+--          },
+--          base_30 = {
+--            black = palette.editor_bg, -- editor background
+--            darker_black = palette.darker_black, -- tree / deepest surfaces
+--            black2 = palette.bars, -- tabufline item background
+--            statusline_bg = palette.bars, -- statusline background
+--            lightbg = palette.bars, -- active tab / light surface
+--            one_bg = palette.elevated, -- elevated surfaces
+--            one_bg2 = palette.selection, -- selection
+--            one_bg3 = palette.border, -- borders
+--            line = palette.elevated, -- separator lines
+--            grey = palette.border,
+--            grey_fg = palette.muted,
+--            grey_fg2 = palette.muted,
+--            -- Right-side statusline block uses nord_blue as its background
+--            nord_blue = palette.bars,
+--          },
+--        },
+--      },
+--
+--      hl_override = {
+--        -- ── Statusline ───────────────────────────────────────────────────────────
+--        StatusLine = { bg = palette.bars },
+--        StatusLineNC = { bg = palette.bars },
+--
+--        -- ── Core backgrounds ───────────────────────────────────────────────────────
+--        Normal = { bg = palette.editor_bg, fg = palette.fg },
+--        NormalFloat = { bg = palette.editor_bg, fg = palette.fg },
+--        SignColumn = { bg = palette.editor_bg }, -- gutter, same as editor
+--        ColorColumn = { bg = palette.elevated },
+--        CursorLine = { bg = palette.elevated },
+--        CursorColumn = { bg = palette.elevated },
+--        Visual = { bg = palette.selection },
+--        Search = { bg = palette.selection, fg = palette.fg },
+--
+--        -- ── Line numbers ───────────────────────────────────────────────────────────
+--        LineNr = { fg = palette.border, bg = palette.editor_bg },
+--        CursorLineNr = { fg = palette.fg, bg = palette.editor_bg, bold = true },
+--
+--        -- ── Borders & separators ───────────────────────────────────────────────────
+--        WinSeparator = { fg = palette.border },
+--        FloatBorder = { fg = palette.border, bg = palette.editor_bg },
+--
+--        -- ── File tree ──────────────────────────────────────────────────────────────
+--        NvimTreeNormal = { bg = palette.darker_black },
+--        NvimTreeNormalNC = { bg = palette.darker_black },
+--        NvimTreeEndOfBuffer = { bg = palette.darker_black },
+--        NvimTreeWinSeparator = { fg = palette.darker_black, bg = palette.darker_black },
+--        NvimTreeCursorLine = { bg = palette.elevated },
+--
+--        -- ── Completion menu ────────────────────────────────────────────────────────
+--        Pmenu = { bg = palette.elevated, fg = palette.fg },
+--        PmenuSel = { bg = palette.selection, fg = palette.fg, bold = true },
+--        PmenuSbar = { bg = palette.selection },
+--        PmenuThumb = { bg = palette.muted },
+--
+--        -- ── Syntax ─────────────────────────────────────────────────────────────────
+--        Comment = { fg = palette.muted, italic = true },
+--        ["@comment"] = { fg = palette.muted, italic = true },
+--
+--        ["@function"] = { fg = palette.blue },
+--        ["@function.builtin"] = { fg = palette.cyan },
+--        ["@method"] = { fg = palette.blue },
+--        ["@keyword"] = { fg = palette.red },
+--        ["@keyword.return"] = { fg = palette.red },
+--        ["@string"] = { fg = palette.green },
+--        ["@number"] = { fg = palette.orange },
+--        ["@float"] = { fg = palette.orange },
+--        ["@boolean"] = { fg = palette.orange },
+--        ["@constant"] = { fg = palette.orange },
+--        ["@type"] = { fg = palette.purple },
+--        ["@type.builtin"] = { fg = palette.purple },
+--        ["@variable"] = { fg = palette.fg },
+--        ["@property"] = { fg = palette.fg },
+--        ["@parameter"] = { fg = palette.fg },
+--        ["@operator"] = { fg = palette.muted },
+--        ["@punctuation"] = { fg = palette.muted },
+--
+--        -- ── Diagnostics ────────────────────────────────────────────────────────────
+--        DiagnosticError = { fg = palette.red },
+--        DiagnosticWarn = { fg = palette.orange },
+--        DiagnosticInfo = { fg = palette.blue },
+--        DiagnosticHint = { fg = palette.cyan },
+--      },
+--    }
+--
+--    -- ─── UI component overrides ───────────────────────────────────────────────────
+--    -- Individual statusline / tabufline modules can be replaced by returning a
+--    -- custom string (or "" to hide them entirely).
+--
+--    M.ui = {
+--      statusline = {
+--        modules = {
+--          -- Return an empty string to remove the mode pill (NORMAL / INSERT / etc.)
+--          mode = function()
+--            return ""
+--          end,
+--        },
+--      },
+--
+--      tabufline = {
+--        modules = {
+--          -- Return an empty string to remove the theme-toggle button on the far right.
+--          buttons = function()
+--            return ""
+--          end,
+--        },
+--      },
+--    }
+--
+--    return M

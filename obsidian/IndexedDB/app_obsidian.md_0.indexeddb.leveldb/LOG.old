@@ -1,0 +1,5 @@
+2026/09/05-12:58:57.610 1d1d Reusing MANIFEST /home/wef/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2026/09/05-12:58:57.610 1d1d Recovering log #3
+2026/09/05-12:58:57.628 1d1d Level-0 table #3: started
+2026/09/05-12:58:57.639 1d1d Level-0 table #3: 1126492 bytes OK
+2026/09/05-12:58:57.647 1d1d Delete type=0 #3
