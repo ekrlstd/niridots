@@ -1,0 +1,20 @@
+[theme]
+mode = "dark"
+source = "wallpaper"
+
+[theme.templates]
+builtin_ids = ["gtk3", "gtk4", "kitty", "niri"]
+community_ids = ["yazi", "zen-browser"]
+enable_builtin_templates = true
+enable_community_templates = true
+
+[theme.templates.user.neovim]
+input_path = "/home/wef/.config/nvim/matugen-template.json"
+output_path = "$XDG_CONFIG_HOME/nvim/matugen.json"
+post_hook = "pkill -SIGUSR1 nvim"
+
+[wallpaper]
+enabled = true
+
+[wallpaper.default]
+path = "/home/wef/personal/media/wallpapers/fantasy-woods.jpg"
